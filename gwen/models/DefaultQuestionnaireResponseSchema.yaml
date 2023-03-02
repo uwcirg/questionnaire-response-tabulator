@@ -1,0 +1,57 @@
+metadata:
+  # Parameters that specify metadata applying to all tables in the schema
+  schema_name: Default Schema
+  results_per_page: 1000
+tables:
+  QuestionnaireResponse:
+    resource_type: QuestionnaireResponse
+    # query_params:
+    #   _sort: -_lastUpdated
+    earliest_updated_datetime: "2020-01-29T00:00:00"
+    columns:
+      identifier:
+        fhir_path: QuestionnaireResponse.identifier
+        selection_criteria: first
+      status:
+        fhir_path: QuestionnaireResponse.status
+        selection_criteria: first
+      subject.identifier:
+        fhir_path: QuestionnaireResponse.subject.identifier
+        selection_criteria: first
+      subject.reference:
+        fhir_path: QuestionnaireResponse.subject.reference
+        selection_criteria: first
+      organization_name:
+        fhir_path: QuestionnaireResponse.subject.managingOrganization.name
+        selection_criteria: first
+      author_id:
+        fhir_path: QuestionnaireResponse.author
+        selection_criteria: first
+      author_role:
+        fhir_path: QuestionnaireResponse.author
+        selection_criteria: first
+      entry_method:
+        fhir_path: QuestionnaireResponse.author
+        selection_criteria: first
+      authored:
+        fhir_path: QuestionnaireResponse.authored
+        selection_criteria: first
+      timepoint:
+        fhir_path: QuestionnaireResponse.authored
+        selection_criteria: first
+      questionnaire:
+        fhir_path: QuestionnaireResponse.questionnaire
+        selection_criteria: first
+      question_code:
+        fhir_path: QuestionnaireResponse.item[0].linkId
+        selection_criteria: first
+      answer_code:
+        fhir_path: QuestionnaireResponse.item[0].answer[0].valueCoding.code
+        selection_criteria: first
+      option_text:
+        fhir_path: QuestionnaireResponse.item[0].answer[0].valueCoding.display
+        selection_criteria: first
+      other_text:
+        fhir_path: QuestionnaireResponse.item[0].answer[0].valueString
+        selection_criteria: first
+      
