@@ -1,13 +1,13 @@
 from flask import Flask
 from werkzeug.middleware.proxy_fix import ProxyFix
 
-from gwen.views import base_blueprint
+from qr_tabulator.views import base_blueprint
 
 
 def create_app(testing=False, cli=False):
     """Application factory, used to create application"""
-    app = Flask("gwen")
-    app.config.from_object("gwen.config")
+    app = Flask("qr_tabulator")
+    app.config.from_object("qr_tabulator.config")
     app.config["TESTING"] = testing
 
     register_blueprints(app)

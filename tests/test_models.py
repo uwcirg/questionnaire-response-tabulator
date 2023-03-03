@@ -1,7 +1,7 @@
 import json
 import os
 from pytest import fixture
-from gwen.models.scrub import ScrubMap, scrub_input
+from qr_tabulator.models.tabulator import tabulate_qr, write
 
 
 class MockResponse(object):

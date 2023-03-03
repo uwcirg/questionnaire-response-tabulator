@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(
-    name="gwen",
-    packages=["gwen"],
+    name="qr_tabulator",
+    packages=["qr_tabulator"],
     include_package_data=True,
 )
