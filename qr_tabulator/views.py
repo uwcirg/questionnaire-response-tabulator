@@ -1,7 +1,7 @@
 import requests
 from flask import Blueprint, abort, current_app, jsonify, request, send_file
 from flask.json import JSONEncoder
-from qr_tabulator.models.tabulator import tabulate_qr, write
+from qr_tabulator.models.tabulator import tabulate_qr, write_table
 
 base_blueprint = Blueprint("base", __name__, cli_group=None)
 
@@ -49,5 +49,5 @@ def tabulate():
     # response.raise_for_status()
     data = request.get_json()
     table = tabulate_qr(data)
-    path = write(table)
+    path = write_table(table)
     return send_file(path, as_attachment=True)

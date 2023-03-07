@@ -1,6 +1,6 @@
 metadata:
   # Parameters that specify metadata applying to all tables in the schema
-  schema_name: Default Schema
+  schema_name: Default Questionnaire Response Schema
   results_per_page: 1000
 tables:
   QuestionnaireResponse:
@@ -9,6 +9,9 @@ tables:
     #   _sort: -_lastUpdated
     earliest_updated_datetime: "2020-01-29T00:00:00"
     columns:
+      id:
+        fhir_path: QuestionnaireResponse.id_original
+        selection_criteria: first
       identifier:
         fhir_path: QuestionnaireResponse.identifier
         selection_criteria: first
@@ -50,6 +53,9 @@ tables:
         selection_criteria: first
       option_text:
         fhir_path: QuestionnaireResponse.item[0].answer[0].valueCoding.display
+        selection_criteria: first
+      option_value:
+        fhir_path: QuestionnaireResponse.item[0].answer[0].valueDecimal
         selection_criteria: first
       other_text:
         fhir_path: QuestionnaireResponse.item[0].answer[0].valueString
