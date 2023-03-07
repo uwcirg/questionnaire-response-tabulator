@@ -1,0 +1,408 @@
+{
+    "entry": [
+      {
+        "fullUrl": "https://femr.dcw.dev.cirg.uw.edu/fhir/QuestionnaireResponse/48", 
+        "resource": {
+          "authored": "2022-12-08", 
+          "id": "48", 
+          "item": [
+            {
+              "answer": [
+                {
+                  "valueDecimal": 20
+                }
+              ], 
+              "linkId": "/71492-3", 
+              "text": "Total score"
+            }
+          ], 
+          "meta": {
+            "lastUpdated": "2022-12-08T18:03:48.357+00:00", 
+            "source": "#CsUyGMVk7j5fUo8I", 
+            "versionId": "1"
+          }, 
+          "questionnaire": "Questionnaire/CIRG-SLUMS", 
+          "resourceType": "QuestionnaireResponse", 
+          "status": "completed", 
+          "subject": {
+            "reference": "Patient/patient-dcw-gimmethemall"
+          }
+        }, 
+        "search": {
+          "mode": "match"
+        }
+      }, 
+      {
+        "fullUrl": "https://femr.dcw.dev.cirg.uw.edu/fhir/MeasureReport/47", 
+        "resource": {
+          "resourceType": "MeasureReport",
+          "id": "ExampleNJ-20200425-CDCPatientImpactAndHospitalCapacity",
+          "meta": {
+            "profile": [
+              "http://hl7.org/fhir/uv/saner/StructureDefinition/PublicHealthMeasureReport"
+            ]
+          },
+          "text": {
+            "status": "generated",
+            "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative</b></p><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Resource \"ExampleNJ-20200425-CDCPatientImpactAndHospitalCapacity\" </p><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-PublicHealthMeasureReport.html\">Public Health Measure Report</a></p></div><p><b>identifier</b>: id: urn:uuid:f87d8ac0-876e-11ea-1639-09173f13e4c5</p><p><b>status</b>: complete</p><p><b>type</b>: summary</p><p><b>measure</b>: <a href=\"Measure-CDCPatientImpactAndHospitalCapacity.html\">Patient Impact and Hospital Capacity</a></p><p><b>subject</b>: <a href=\"Location-states-NJ.html\">Location/states-NJ: State of New Jersey</a></p><p><b>date</b>: 2020-04-25 12:00:00-0500</p><p><b>reporter</b>: <a href=\"Organization-NJ-DPH.html\">Organization/NJ-DPH: New Jersey Department of Public Health</a> \"New Jersey Department of Public Health\"</p><p><b>period</b>: 2020-04-25 12:00:00-0500 --&gt; 2020-04-25 12:00:00-0500</p><blockquote><p><b>group</b></p><p><b>code</b>: Beds <span style=\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"> (<a href=\"CodeSystem-MeasureGroupSystem.html\">Measure Group System</a>#Beds)</span></p><blockquote><p><b>population</b></p><p><b>code</b>: All Hospital Beds <span style=\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"> (<a href=\"CodeSystem-MeasuredValues.html\">Measured Values in Sample Measures</a>#numTotBeds; <a href=\"http://terminology.hl7.org/3.0.0/CodeSystem-measure-population.html\">MeasurePopulationType</a>#initial-population)</span></p><p><b>count</b>: 20000</p></blockquote><blockquote><p><b>population</b></p><p><b>code</b>: Hospital Inpatient Beds <span style=\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"> (<a href=\"CodeSystem-MeasuredValues.html\">Measured Values in Sample Measures</a>#numbeds; <a href=\"http://terminology.hl7.org/3.0.0/CodeSystem-measure-population.html\">MeasurePopulationType</a>#measure-population)</span></p><p><b>count</b>: 15000</p></blockquote><blockquote><p><b>population</b></p><p><b>code</b>: Hospital Inpatient Bed Occupancy <span style=\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"> (<a href=\"CodeSystem-MeasuredValues.html\">Measured Values in Sample Measures</a>#numBedsOcc; <a href=\"http://terminology.hl7.org/3.0.0/CodeSystem-measure-population.html\">MeasurePopulationType</a>#measure-population)</span></p><p><b>count</b>: ??</p></blockquote><blockquote><p><b>population</b></p><p><b>code</b>: ICU Beds <span style=\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"> (<a href=\"CodeSystem-MeasuredValues.html\">Measured Values in Sample Measures</a>#numICUBeds; <a href=\"http://terminology.hl7.org/3.0.0/CodeSystem-measure-population.html\">MeasurePopulationType</a>#measure-population)</span></p><p><b>count</b>: 2500</p></blockquote><blockquote><p><b>population</b></p><p><b>code</b>: ICU Bed Occupancy <span style=\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"> (<a href=\"CodeSystem-MeasuredValues.html\">Measured Values in Sample Measures</a>#numICUBedsOcc; <a href=\"http://terminology.hl7.org/3.0.0/CodeSystem-measure-population.html\">MeasurePopulationType</a>#measure-population)</span></p><p><b>count</b>: ??</p></blockquote></blockquote><blockquote><p><b>group</b></p><p><b>code</b>: Ventilators <span style=\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"> (<a href=\"CodeSystem-MeasureGroupSystem.html\">Measure Group System</a>#Ventilators)</span></p><blockquote><p><b>population</b></p><p><b>code</b>: Mechanical Ventilators <span style=\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"> (<a href=\"CodeSystem-MeasuredValues.html\">Measured Values in Sample Measures</a>#numVent; <a href=\"http://terminology.hl7.org/3.0.0/CodeSystem-measure-population.html\">MeasurePopulationType</a>#initial-population)</span></p><p><b>count</b>: 2250</p></blockquote><blockquote><p><b>population</b></p><p><b>code</b>: Mechanical Ventilators in Use <span style=\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"> (<a href=\"CodeSystem-MeasuredValues.html\">Measured Values in Sample Measures</a>#numVentUse; <a href=\"http://terminology.hl7.org/3.0.0/CodeSystem-measure-population.html\">MeasurePopulationType</a>#measure-population)</span></p><p><b>count</b>: 1755</p></blockquote></blockquote><blockquote><p><b>group</b></p><p><b>code</b>: Encounters <span style=\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"> (<a href=\"CodeSystem-MeasureGroupSystem.html\">Measure Group System</a>#Encounters)</span></p><blockquote><p><b>population</b></p><p><b>code</b>: Hospitalized COVID-19 Patients <span style=\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"> (<a href=\"CodeSystem-MeasuredValues.html\">Measured Values in Sample Measures</a>#numC19HospPats; <a href=\"http://terminology.hl7.org/3.0.0/CodeSystem-measure-population.html\">MeasurePopulationType</a>#measure-population)</span></p><p><b>count</b>: 6722</p></blockquote><blockquote><p><b>population</b></p><p><b>code</b>: Hospitalized and Ventilated COVID-19 Patients <span style=\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"> (<a href=\"CodeSystem-MeasuredValues.html\">Measured Values in Sample Measures</a>#numC19MechVentPats; <a href=\"http://terminology.hl7.org/3.0.0/CodeSystem-measure-population.html\">MeasurePopulationType</a>#measure-population)</span></p><p><b>count</b>: 1442</p></blockquote><blockquote><p><b>population</b></p><p><b>code</b>: Hospital Onset COVID-19 Patients <span style=\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"> (<a href=\"CodeSystem-MeasuredValues.html\">Measured Values in Sample Measures</a>#numC19HOPats; <a href=\"http://terminology.hl7.org/3.0.0/CodeSystem-measure-population.html\">MeasurePopulationType</a>#measure-population)</span></p><p><b>count</b>: ??</p></blockquote><blockquote><p><b>population</b></p><p><b>code</b>: ED/Overflow COVID-19 Patients <span style=\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"> (<a href=\"CodeSystem-MeasuredValues.html\">Measured Values in Sample Measures</a>#numC19OverflowPats; <a href=\"http://terminology.hl7.org/3.0.0/CodeSystem-measure-population.html\">MeasurePopulationType</a>#measure-population)</span></p><p><b>count</b>: ??</p></blockquote><blockquote><p><b>population</b></p><p><b>code</b>: ED/Overflow and Ventilated COVID-19 Patients <span style=\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"> (<a href=\"CodeSystem-MeasuredValues.html\">Measured Values in Sample Measures</a>#numC19OFMechVentPats; <a href=\"http://terminology.hl7.org/3.0.0/CodeSystem-measure-population.html\">MeasurePopulationType</a>#measure-population)</span></p><p><b>count</b>: ??</p></blockquote><blockquote><p><b>population</b></p><p><b>code</b>: COVID-19 Patient Deaths <span style=\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"> (<a href=\"CodeSystem-MeasuredValues.html\">Measured Values in Sample Measures</a>#numC19Died; <a href=\"http://terminology.hl7.org/3.0.0/CodeSystem-measure-population.html\">MeasurePopulationType</a>#measure-population)</span></p><p><b>count</b>: ??</p></blockquote><blockquote><p><b>population</b></p><p><b>code</b>: Patients with suspected or confirmed COVID-19 in any location. <span style=\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"> (<a href=\"CodeSystem-MeasuredValues.html\">Measured Values in Sample Measures</a>#numC19Pats)</span></p><p><b>count</b>: ??</p></blockquote><blockquote><p><b>population</b></p><p><b>code</b>: Ventilated COVID-19 Patients <span style=\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"> (<a href=\"CodeSystem-MeasuredValues.html\">Measured Values in Sample Measures</a>#numC19VentPats)</span></p><p><b>count</b>: ??</p></blockquote></blockquote></div>"
+          },
+          "identifier": [
+            {
+              "system": "urn:ietf:rfc:3986",
+              "value": "urn:uuid:f87d8ac0-876e-11ea-1639-09173f13e4c5"
+            }
+          ],
+          "status": "complete",
+          "type": "summary",
+          "measure": "http://hl7.org/fhir/uv/saner/Measure/CDCPatientImpactAndHospitalCapacity",
+          "subject": {
+            "reference": "Location/states-NJ",
+            "identifier": {
+              "system": "https://www.census.gov/geographies",
+              "value": "34"
+            },
+            "display": "State of New Jersey"
+          },
+          "date": "2020-04-25T00:00:00-05:00",
+          "reporter": {
+            "reference": "Organization/NJ-DPH",
+            "display": "New Jersey Department of Public Health"
+          },
+          "period": {
+            "start": "2020-04-25T00:00:00-05:00",
+            "end": "2020-04-25T00:00:00-05:00"
+          },
+          "group": [
+            {
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://hl7.org/fhir/uv/saner/CodeSystem/MeasureGroupSystem",
+                    "code": "Beds"
+                  }
+                ]
+              },
+              "population": [
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/uv/saner/CodeSystem/MeasuredValues",
+                        "code": "numTotBeds"
+                      },
+                      {
+                        "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                        "code": "initial-population"
+                      }
+                    ]
+                  },
+                  "count": 20000
+                },
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/uv/saner/CodeSystem/MeasuredValues",
+                        "code": "numbeds"
+                      },
+                      {
+                        "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                        "code": "measure-population"
+                      }
+                    ]
+                  },
+                  "count": 15000
+                },
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/uv/saner/CodeSystem/MeasuredValues",
+                        "code": "numBedsOcc"
+                      },
+                      {
+                        "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                        "code": "measure-population"
+                      }
+                    ]
+                  },
+                  "_count": {
+                    "extension": [
+                      {
+                        "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                        "valueCode": "unsupported"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/uv/saner/CodeSystem/MeasuredValues",
+                        "code": "numICUBeds"
+                      },
+                      {
+                        "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                        "code": "measure-population"
+                      }
+                    ]
+                  },
+                  "count": 2500
+                },
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/uv/saner/CodeSystem/MeasuredValues",
+                        "code": "numICUBedsOcc"
+                      },
+                      {
+                        "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                        "code": "measure-population"
+                      }
+                    ]
+                  },
+                  "_count": {
+                    "extension": [
+                      {
+                        "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                        "valueCode": "unsupported"
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://hl7.org/fhir/uv/saner/CodeSystem/MeasureGroupSystem",
+                    "code": "Ventilators"
+                  }
+                ]
+              },
+              "population": [
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/uv/saner/CodeSystem/MeasuredValues",
+                        "code": "numVent"
+                      },
+                      {
+                        "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                        "code": "initial-population"
+                      }
+                    ]
+                  },
+                  "count": 2250
+                },
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/uv/saner/CodeSystem/MeasuredValues",
+                        "code": "numVentUse"
+                      },
+                      {
+                        "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                        "code": "measure-population"
+                      }
+                    ]
+                  },
+                  "count": 1755
+                }
+              ]
+            },
+            {
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://hl7.org/fhir/uv/saner/CodeSystem/MeasureGroupSystem",
+                    "code": "Encounters"
+                  }
+                ]
+              },
+              "population": [
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/uv/saner/CodeSystem/MeasuredValues",
+                        "code": "numC19HospPats"
+                      },
+                      {
+                        "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                        "code": "measure-population"
+                      }
+                    ]
+                  },
+                  "count": 6722
+                },
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/uv/saner/CodeSystem/MeasuredValues",
+                        "code": "numC19MechVentPats"
+                      },
+                      {
+                        "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                        "code": "measure-population"
+                      }
+                    ]
+                  },
+                  "count": 1442
+                },
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/uv/saner/CodeSystem/MeasuredValues",
+                        "code": "numC19HOPats"
+                      },
+                      {
+                        "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                        "code": "measure-population"
+                      }
+                    ]
+                  },
+                  "_count": {
+                    "extension": [
+                      {
+                        "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                        "valueCode": "unsupported"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/uv/saner/CodeSystem/MeasuredValues",
+                        "code": "numC19OverflowPats"
+                      },
+                      {
+                        "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                        "code": "measure-population"
+                      }
+                    ]
+                  },
+                  "_count": {
+                    "extension": [
+                      {
+                        "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                        "valueCode": "unsupported"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/uv/saner/CodeSystem/MeasuredValues",
+                        "code": "numC19OFMechVentPats"
+                      },
+                      {
+                        "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                        "code": "measure-population"
+                      }
+                    ]
+                  },
+                  "_count": {
+                    "extension": [
+                      {
+                        "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                        "valueCode": "unsupported"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/uv/saner/CodeSystem/MeasuredValues",
+                        "code": "numC19Died"
+                      },
+                      {
+                        "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                        "code": "measure-population"
+                      }
+                    ]
+                  },
+                  "_count": {
+                    "extension": [
+                      {
+                        "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                        "valueCode": "unsupported"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/uv/saner/CodeSystem/MeasuredValues",
+                        "code": "numC19Pats"
+                      }
+                    ],
+                    "text": "Patients with suspected or confirmed COVID-19 in any location."
+                  },
+                  "_count": {
+                    "extension": [
+                      {
+                        "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                        "valueCode": "unsupported"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/uv/saner/CodeSystem/MeasuredValues",
+                        "code": "numC19VentPats"
+                      }
+                    ],
+                    "text": "Ventilated COVID-19 Patients"
+                  },
+                  "_count": {
+                    "extension": [
+                      {
+                        "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                        "valueCode": "unsupported"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        }, 
+        "search": {
+          "mode": "match"
+        }
+      }
+    ], 
+    "id": "a8e99bc3-6c68-474c-bdab-784a0616c6e2", 
+    "link": [
+      {
+        "relation": "self", 
+        "url": "https://femr.dcw.dev.cirg.uw.edu/fhir/QuestionnaireResponse?_sort=-_lastUpdated&patient=patient-dcw-gimmethemall"
+      }
+    ], 
+    "meta": {
+      "lastUpdated": "2022-12-28T23:01:39.937+00:00"
+    }, 
+    "resourceType": "Bundle", 
+    "total": 10, 
+    "type": "searchset"
+  }
+  

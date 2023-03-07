@@ -1,0 +1,50 @@
+{
+    "entry": [
+      {
+        "fullUrl": "https://femr.dcw.dev.cirg.uw.edu/fhir/QuestionnaireResponse/49", 
+        "resource": {
+          "authored": "2022-12-08", 
+          "id": "49", 
+          "item": [
+            {
+              "answer": [
+                {
+                  "valueDecimal": 2
+                }
+              ], 
+              "linkId": "behav-8", 
+              "text": "BEHAV5 total score"
+            }
+          ], 
+          "meta": {
+            "lastUpdated": "2022-12-08T18:04:23.141+00:00", 
+            "source": "#TELiBFdzAHqQZo0a", 
+            "versionId": "1"
+          }, 
+          "questionnaire": "Questionnaire/CIRG-BEHAV5", 
+          "resourceType": "QuestionnaireResponse", 
+          "status": "completed", 
+          "subject": {
+            "reference": "Patient/patient-dcw-gimmethemall"
+          }
+        }, 
+        "search": {
+          "mode": "match"
+        }
+      }
+    ], 
+    "id": "a8e99bc3-6c68-474c-bdab-784a0616c6e2", 
+    "link": [
+      {
+        "relation": "self", 
+        "url": "https://femr.dcw.dev.cirg.uw.edu/fhir/QuestionnaireResponse?_sort=-_lastUpdated&patient=patient-dcw-gimmethemall"
+      }
+    ], 
+    "meta": {
+      "lastUpdated": "2022-12-28T23:01:39.937+00:00"
+    }, 
+    "resourceType": "Bundle", 
+    "total": 1, 
+    "type": "searchset"
+  }
+  

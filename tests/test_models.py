@@ -1,7 +1,10 @@
 import json
 import os
+import shutil
 from pytest import fixture
-from qr_tabulator.models.tabulator import tabulate_qr, write
+from qr_tabulator.models.tabulator import tabulate_qr, get_bundle_entries_of_type, preprocess_qr, write_table
+from fhir.resources.questionnaireresponse import QuestionnaireResponse
+import pandas as pd
 
 
 class MockResponse(object):
@@ -27,51 +30,63 @@ def load_jsondata(datadir, filename):
 
 
 @fixture
-def events_w_patients_data(datadir):
-    return load_jsondata(datadir, "events-containing-patients.json")
+def qnr_response_example(datadir):
+    return load_jsondata(datadir, "QnrResponseExample.json")
+@fixture
+def qnr_response_example_mixed(datadir):
+    return load_jsondata(datadir, "QnrResponseExampleMixed.json")
+@fixture
+def qnr_response_example_simple(datadir):
+    return load_jsondata(datadir, "QnrResponseExampleSimple.json")
+@fixture
+def qnr_response_example_entry_list(datadir):
+    return load_jsondata(datadir, "QnrResponseExampleEntryList.json")
 
 
-def test_dob_patterns():
-    sm = ScrubMap()
-    sm.clean("eq1999-10-12")
-    assert "1999" in sm.map.values()
-    sm.clean("1999-10-12")
-    assert len(sm.map) == 1
+def test_get_bundle_entries_of_type_simple(qnr_response_example_simple):
+    type = QuestionnaireResponse
+    entries = get_bundle_entries_of_type(qnr_response_example_simple, type)
+    assert len(entries) == 1
+    resource = type.parse_obj(entries[0]['resource'])
+    assert isinstance(resource, type)
+
+def test_get_bundle_entries_of_type_mixed(qnr_response_example_mixed):
+    type = QuestionnaireResponse
+    entries = get_bundle_entries_of_type(qnr_response_example_mixed, type)
+    assert len(entries) == 1
+    resource = type.parse_obj(entries[0]['resource'])
+    assert isinstance(resource, type)
 
 
-def test_name_case():
-    sm = ScrubMap()
-    upper_hash = sm.clean("NaMe")
-    lower_hash = sm.clean("name")
-    assert upper_hash == lower_hash
-    assert len(sm.map) == 1
+def test_qr_preprocessing(qnr_response_example_entry_list):
+    entry_list = qnr_response_example_entry_list
+    processed_entries = preprocess_qr(qnr_response_example_entry_list)
+    assert len(processed_entries) == len(entry_list[0]['resource']['item'])
+    for entry in processed_entries:
+        assert len(entry['resource']['item']) == 1
 
 
-def test_names_extra_whitespace():
-    full_name = "first  last"
-    sm = ScrubMap()
-    full_hash = sm.clean(full_name)
-    tokenized = []
-    for i in ("first", " ", "last"):
-        tokenized.append(sm.clean(i))
+def test_write_table_no_location():
+    df = pd.DataFrame()
+    path = write_table(df)
+    assert os.path.exists(path)
+    assert os.path.dirname(path) == os.getcwd()
+    os.remove(path)
 
-    assert full_hash == " ".join(tokenized)
+def test_write_table_location():
+    df = pd.DataFrame()
+    folder = "test_output"
+    if os.path.exists(folder):
+        shutil.rmtree(folder, ignore_errors=True)
+    os.mkdir(folder)
+    path = write_table(df, folder)
+    assert os.path.exists(path)
+    assert os.path.dirname(path) == os.path.join(os.getcwd(), folder)
+    os.remove(path)
+    shutil.rmtree(folder, ignore_errors=True)
 
 
-def test_tokenized_name():
-    full_name = "first last"
-    sm = ScrubMap()
-    full_hash = sm.clean(full_name)
-    first = sm.clean("first")
-    last = sm.clean("last")
-    assert f"{first} {last}" == full_hash
-    assert full_hash == sm.clean("FiRST LaSt")
-
-
-def test_scrub(events_w_patients_data):
-    clean_data, scrub_map = scrub_input(events_w_patients_data)
-    assert "marcus" not in json.dumps(clean_data)
-    assert "marcus aurelius" not in json.dumps(clean_data)
-    assert "Marcus Aurelius" not in json.dumps(clean_data)
-    assert "1975-06-17" not in json.dumps(clean_data)
-    assert len(clean_data) == len(events_w_patients_data)
+def test_tabulate_qr(qnr_response_example):
+    table = tabulate_qr(qnr_response_example)
+    assert isinstance(table, pd.DataFrame)
+    assert len(table.index) == 79#len(qnr_response_example)

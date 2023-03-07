@@ -1,0 +1,143 @@
+[
+      {
+        "fullUrl": "https://femr.dcw.dev.cirg.uw.edu/fhir/QuestionnaireResponse/37", 
+        "resource": {
+          "authored": "2022-12-07", 
+          "id": "37", 
+          "item": [
+            {
+              "answer": [
+                {
+                  "valueDecimal": 28
+                }
+              ], 
+              "linkId": "ecog12-total-score", 
+              "text": "Total Score"
+            }, 
+            {
+              "answer": [
+                {
+                  "valueCoding": {
+                    "code": "LA33-6", 
+                    "display": "Yes"
+                  }
+                }
+              ], 
+              "linkId": "/89174-7", 
+              "text": "Are you concerned that you have a memory or other thinking problem?"
+            }, 
+            {
+              "answer": [
+                {
+                  "valueCoding": {
+                    "code": "LA28963-9", 
+                    "display": "I occasionally perform the task worse but not all of the time"
+                  }
+                }
+              ], 
+              "linkId": "/89286-9/89146-5", 
+              "text": "Compared to 10 years ago, has there been any change in remembering where I have placed objects."
+            }, 
+            {
+              "answer": [
+                {
+                  "valueCoding": {
+                    "code": "LA28963-9", 
+                    "display": "I occasionally perform the task worse but not all of the time"
+                  }
+                }
+              ], 
+              "linkId": "/89286-9/89149-9", 
+              "text": "Compared to 10 years ago, has there been any change in remembering the current date or day of the week."
+            }, 
+            {
+              "answer": [
+                {
+                  "valueCoding": {
+                    "code": "LA28963-9", 
+                    "display": "I occasionally perform the task worse but not all of the time"
+                  }
+                }
+              ], 
+              "linkId": "/89287-7/89172-1", 
+              "text": "Compared to 10 years ago, has there been any change in communicating thoughts in a conversation."
+            }, 
+            {
+              "answer": [
+                {
+                  "valueCoding": {
+                    "code": "LA28963-9", 
+                    "display": "I occasionally perform the task worse but not all of the time"
+                  }
+                }
+              ], 
+              "linkId": "/89287-7/89138-2", 
+              "text": "Compared to 10 years ago, has there been any change in understanding spoken directions or instructions."
+            }, 
+            {
+              "answer": [
+                {
+                  "valueCoding": {
+                    "code": "LA28963-9", 
+                    "display": "I occasionally perform the task worse but not all of the time"
+                  }
+                }
+              ], 
+              "linkId": "/89288-5/89154-9", 
+              "text": "Compared to 10 years ago, has there been any change in reading a map and helping with directions when someone else is driving."
+            }, 
+            {
+              "answer": [
+                {
+                  "valueCoding": {
+                    "code": "LA28963-9", 
+                    "display": "I occasionally perform the task worse but not all of the time"
+                  }
+                }
+              ], 
+              "linkId": "/89288-5/89165-5", 
+              "text": "Compared to 10 years ago, has there been any change in finding my way around a house/building visited many times."
+            }, 
+            {
+              "answer": [
+                {
+                  "valueCoding": {
+                    "code": "LA28963-9", 
+                    "display": "I occasionally perform the task worse but not all of the time"
+                  }
+                }
+              ], 
+              "linkId": "/89289-3/89143-2", 
+              "text": "Compared to 10 years ago, has there been any change in the ability to anticipate weather changes and plan accordingly (i.e. bring a coat or umbrella)."
+            }, 
+            {
+              "answer": [
+                {
+                  "valueCoding": {
+                    "code": "LA29135-3", 
+                    "display": "I consistently perform the task a little worse than 10 years ago"
+                  }
+                }
+              ], 
+              "linkId": "/89289-3/89140-8", 
+              "text": "Compared to 10 years ago, has there been any change in thinking ahead."
+            }
+          ], 
+          "meta": {
+            "lastUpdated": "2022-12-07T22:11:27.078+00:00", 
+            "source": "#lS8MRPntvLkiHNuR", 
+            "versionId": "1"
+          }, 
+          "questionnaire": "Questionnaire/CIRG-ECOG12", 
+          "resourceType": "QuestionnaireResponse", 
+          "status": "completed", 
+          "subject": {
+            "reference": "Patient/patient-dcw-gimmethemall"
+          }
+        }, 
+        "search": {
+          "mode": "match"
+        }
+      }
+    ]
+  
