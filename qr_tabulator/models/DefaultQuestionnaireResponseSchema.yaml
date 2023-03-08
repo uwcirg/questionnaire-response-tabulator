@@ -7,7 +7,7 @@ tables:
     resource_type: QuestionnaireResponse
     # query_params:
     #   _sort: -_lastUpdated
-    earliest_updated_datetime: "2020-01-29T00:00:00"
+    earliest_updated_datetime: "2000-01-01T00:00:00"
     columns:
       id:
         fhir_path: QuestionnaireResponse.id_original
@@ -60,4 +60,3 @@ tables:
       other_text:
         fhir_path: QuestionnaireResponse.item[0].answer[0].valueString
         selection_criteria: first
-      

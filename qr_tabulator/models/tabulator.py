@@ -61,7 +61,7 @@ def get_bundle_entries_of_type(bundle, resource_type:BackboneElement):
     return entries
 
 def tabulate_qr(bundle):
-    schema_path = Path.cwd()/"DefaultQuestionnaireResponseSchema.yaml" # Path to a schema config file.
+    schema_path = Path(__file__).parent/"DefaultQuestionnaireResponseSchema.yaml" # Path to a schema config file.
     schema = load_schema(schema_path)
     entries = get_bundle_entries_of_type(bundle, QuestionnaireResponse)
     preprocessed_data = preprocess_qr(entries)
