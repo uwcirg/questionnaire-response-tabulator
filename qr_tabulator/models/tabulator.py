@@ -15,9 +15,7 @@ import time
 import json
 from fhir.resources.bundle import Bundle
 from fhir.resources.questionnaireresponse import QuestionnaireResponse
-from fhir.resources.backboneelement import BackboneElement
-
-REPORT_TYPE = "QuestionnaireResponse"
+from fhir.resources.resource import Resource
 
 def write_table(df:pd.DataFrame, location=None, type='csv'):
     if location is None:
@@ -29,11 +27,12 @@ def write_table(df:pd.DataFrame, location=None, type='csv'):
         if not location.exists():
             location.mkdir(parents=True)
     datetime = time.strftime("%Y-%m-%d-%H%M%S")
-    basename = f"{REPORT_TYPE}-{datetime}"
+    basename = f"QuestionnaireResponse-{datetime}"
     path = location/f"{basename}.{type}"
     if type == 'csv':
         df.to_csv(path, index=False)
     return str(path)
+
 
 def preprocess_qr(entries):
     # Denormalize QR entries on items
@@ -51,20 +50,22 @@ def preprocess_qr(entries):
     print(len(new_entries))
     return new_entries
 
-def get_bundle_entries_of_type(bundle, resource_type:BackboneElement):
-    validated_bundle = Bundle.parse_obj(bundle)
-    bundle_entries = bundle['entry']
-    entries = []
-    for idx, entry in enumerate(validated_bundle.entry):
+
+def get_bundle_entries_of_type(bundle_dict, resource_type:Resource):
+    valid_bundle = Bundle.parse_obj(bundle_dict)
+    bundle_dict_entries = bundle_dict['entry']
+    filtered_entries = []
+    for idx, entry in enumerate(valid_bundle.entry):
         if isinstance(entry.resource, resource_type):
-           entries.append(bundle_entries[idx])
-    return entries
+           filtered_entries.append(bundle_dict_entries[idx])
+    return filtered_entries
+
 
 def tabulate_qr(bundle):
     schema_path = Path(__file__).parent/"DefaultQuestionnaireResponseSchema.yaml" # Path to a schema config file.
     schema = load_schema(schema_path)
     entries = get_bundle_entries_of_type(bundle, QuestionnaireResponse)
     preprocessed_data = preprocess_qr(entries)
-    tabulated_results = tabulate_data(preprocessed_data, schema, REPORT_TYPE)
-    df = pd.DataFrame(data=tabulated_results[1:], columns=tabulated_results[0])
+    tabulated_results = tabulate_data(preprocessed_data, schema, "QuestionnaireResponse")
+    df = pd.DataFrame(columns=tabulated_results[0], data=tabulated_results[1:])
     return df
