@@ -1,6 +1,6 @@
 import json
-import os
 import shutil
+from pathlib import Path
 from pytest import fixture
 from qr_tabulator.models.tabulator import tabulate_qr, get_bundle_entries_of_type, preprocess_qr, write_table
 from fhir.resources.questionnaireresponse import QuestionnaireResponse
@@ -24,7 +24,7 @@ class MockResponse(object):
 
 
 def load_jsondata(datadir, filename):
-    with open(os.path.join(datadir, filename), "r") as jsonfile:
+    with open(Path.joinpath(datadir, filename), "r") as jsonfile:
         data = json.load(jsonfile)
     return data
 
@@ -69,20 +69,20 @@ def test_qr_preprocessing(qnr_response_example_entry_list):
 def test_write_table_no_location():
     df = pd.DataFrame()
     path = write_table(df)
-    assert os.path.exists(path)
-    assert os.path.dirname(path) == os.getcwd()
-    os.remove(path)
+    assert path.exists()
+    assert path.parent == Path.cwd()
+    path.unlink()
 
 def test_write_table_location():
     df = pd.DataFrame()
-    folder = "test_output"
-    if os.path.exists(folder):
+    folder = Path("test_output")
+    if folder.exists():
         shutil.rmtree(folder, ignore_errors=True)
-    os.mkdir(folder)
+    folder.mkdir(parents=True)
     path = write_table(df, folder)
-    assert os.path.exists(path)
-    assert os.path.dirname(path) == os.path.join(os.getcwd(), folder)
-    os.remove(path)
+    assert path.exists()
+    assert path.parent == Path.cwd()/folder
+    path.unlink()
     shutil.rmtree(folder, ignore_errors=True)
 
 
