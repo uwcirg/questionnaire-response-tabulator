@@ -1,6 +1,7 @@
 import requests
 from flask import Blueprint, abort, current_app, jsonify, request, send_file
 from flask.json import JSONEncoder
+from pydantic.error_wrappers import ValidationError
 from qr_tabulator.models.tabulator import tabulate_qr, write_table
 
 base_blueprint = Blueprint("base", __name__, cli_group=None)
@@ -46,8 +47,10 @@ def config_settings(config_key):
 @base_blueprint.route("/tabulate", methods=['POST'])
 def tabulate():
     """convert bundle of FHIR QuestionnaireResponse to CSV"""
-    # response.raise_for_status()
-    data = request.get_json()
-    table = tabulate_qr(data)
+    data = request.json
+    try:
+        table = tabulate_qr(data)
+    except ValidationError as ve:
+        abort(status_code=400, messag=ve)
     path = write_table(table)
     return send_file(path, as_attachment=True)
