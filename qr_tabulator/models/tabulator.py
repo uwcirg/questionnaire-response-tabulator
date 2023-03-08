@@ -21,17 +21,16 @@ def write_table(df:pd.DataFrame, location=None, type='csv'):
     if location is None:
         location = Path.cwd()
     else:
-        location = Path(location)
-        if not Path.is_absolute(location):
-            location = location.absolute()
-        if not location.exists():
-            location.mkdir(parents=True)
+        location = Path(location).absolute()
+        location.mkdir(parents=True, exist_ok=True)
     datetime = time.strftime("%Y-%m-%d-%H%M%S")
     basename = f"QuestionnaireResponse-{datetime}"
-    path = location/f"{basename}.{type}"
     if type == 'csv':
-        df.to_csv(path, index=False)
-    return str(path)
+        ext = 'csv'
+        write_fn = lambda dataframe, path: dataframe.to_csv(path, index=False)
+    path = location / f"{basename}.{ext}"
+    write_fn(df, path)
+    return path
 
 
 def preprocess_qr(entries):
