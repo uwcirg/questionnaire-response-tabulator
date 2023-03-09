@@ -41,7 +41,7 @@ lxml==4.9.2
 MarkupSafe==2.1.2
 msal==1.21.0
 msal-extensions==1.0.0
-numpy==1.20.1
+numpy==1.21.0
 packaging==23.0
 pandas==1.5.3
 phdi @ git+https://github.com/CDCgov/phdi@12b67f24c1e0b08d8a8a305c6b493a9aed70c665
