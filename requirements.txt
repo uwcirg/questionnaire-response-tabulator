@@ -41,7 +41,7 @@ lxml==4.9.2
 MarkupSafe==2.1.2
 msal==1.21.0
 msal-extensions==1.0.0
-numpy==1.21.0
+numpy==1.18.5
 packaging==23.0
 pandas==1.5.3
 phdi @ git+https://github.com/CDCgov/phdi@12b67f24c1e0b08d8a8a305c6b493a9aed70c665
@@ -51,7 +51,7 @@ pluggy==1.0.0
 polling==0.3.2
 portalocker==2.7.0
 protobuf==4.22.0
-pyarrow==4.0.0
+pyarrow==0.17.1
 pyasn1==0.4.8
 pyasn1-modules==0.2.8
 pycountry==22.3.5
