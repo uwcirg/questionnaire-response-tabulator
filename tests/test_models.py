@@ -2,7 +2,12 @@ import json
 import shutil
 from pathlib import Path
 from pytest import fixture
-from qr_tabulator.models.tabulator import tabulate_qr, get_bundle_entries_of_type, preprocess_qr, write_table
+from qr_tabulator.models.tabulator import (
+    tabulate_qr,
+    get_bundle_entries_of_type,
+    preprocess_qr,
+    write_table,
+)
 from fhir.resources.questionnaireresponse import QuestionnaireResponse
 import pandas as pd
 
@@ -32,12 +37,18 @@ def load_jsondata(datadir, filename):
 @fixture
 def qnr_response_example(datadir):
     return load_jsondata(datadir, "QnrResponseExample.json")
+
+
 @fixture
 def qnr_response_example_mixed(datadir):
     return load_jsondata(datadir, "QnrResponseExampleMixed.json")
+
+
 @fixture
 def qnr_response_example_simple(datadir):
     return load_jsondata(datadir, "QnrResponseExampleSimple.json")
+
+
 @fixture
 def qnr_response_example_entry_list(datadir):
     return load_jsondata(datadir, "QnrResponseExampleEntryList.json")
@@ -47,23 +58,24 @@ def test_get_bundle_entries_of_type_simple(qnr_response_example_simple):
     type = QuestionnaireResponse
     entries = get_bundle_entries_of_type(qnr_response_example_simple, type)
     assert len(entries) == 1
-    resource = type.parse_obj(entries[0]['resource'])
+    resource = type.parse_obj(entries[0]["resource"])
     assert isinstance(resource, type)
+
 
 def test_get_bundle_entries_of_type_mixed(qnr_response_example_mixed):
     type = QuestionnaireResponse
     entries = get_bundle_entries_of_type(qnr_response_example_mixed, type)
     assert len(entries) == 1
-    resource = type.parse_obj(entries[0]['resource'])
+    resource = type.parse_obj(entries[0]["resource"])
     assert isinstance(resource, type)
 
 
 def test_qr_preprocessing(qnr_response_example_entry_list):
     entry_list = qnr_response_example_entry_list
     processed_entries = preprocess_qr(qnr_response_example_entry_list)
-    assert len(processed_entries) == len(entry_list[0]['resource']['item'])
+    assert len(processed_entries) == len(entry_list[0]["resource"]["item"])
     for entry in processed_entries:
-        assert len(entry['resource']['item']) == 1
+        assert len(entry["resource"]["item"]) == 1
 
 
 def test_write_table_no_location():
@@ -73,6 +85,7 @@ def test_write_table_no_location():
     assert path.parent == Path.cwd()
     path.unlink()
 
+
 def test_write_table_location():
     df = pd.DataFrame()
     folder = Path("test_output")
@@ -81,7 +94,7 @@ def test_write_table_location():
     folder.mkdir(parents=True)
     path = write_table(df, folder)
     assert path.exists()
-    assert path.parent == Path.cwd()/folder
+    assert path.parent == Path.cwd() / folder
     path.unlink()
     shutil.rmtree(folder, ignore_errors=True)
 
@@ -89,4 +102,4 @@ def test_write_table_location():
 def test_tabulate_qr(qnr_response_example):
     table = tabulate_qr(qnr_response_example)
     assert isinstance(table, pd.DataFrame)
-    assert len(table.index) == 79#len(qnr_response_example)
+    assert len(table.index) == 79  # len(qnr_response_example)

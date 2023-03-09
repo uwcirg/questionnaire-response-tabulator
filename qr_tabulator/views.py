@@ -44,7 +44,7 @@ def config_settings(config_key):
     return jsonify(settings)
 
 
-@base_blueprint.route("/tabulate", methods=['POST'])
+@base_blueprint.route("/tabulate", methods=["POST"])
 def tabulate():
     """convert bundle of FHIR QuestionnaireResponse to CSV"""
     data = request.json
