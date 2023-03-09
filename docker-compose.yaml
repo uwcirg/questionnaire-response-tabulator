@@ -4,8 +4,5 @@ services:
   qr_tabulator:
     build:
       context: .
-    ports:
-      # allow override of published port
-      - 127.0.0.1:${P_PORT:-5000}:5000
     env_file:
       - qr_tabulator.env
