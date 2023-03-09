@@ -1,4 +1,3 @@
-import requests
 from flask import Blueprint, abort, current_app, jsonify, request, send_file
 from flask.json import JSONEncoder
 from pydantic.error_wrappers import ValidationError

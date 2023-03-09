@@ -17,6 +17,8 @@ from fhir.resources.bundle import Bundle
 from fhir.resources.questionnaireresponse import QuestionnaireResponse
 from fhir.resources.resource import Resource
 
+def write_fn(dataframe, path):
+    return dataframe.to_csv(path, index=False)
 
 def write_table(df: pd.DataFrame, location=None, type="csv"):
     if location is None:
@@ -28,7 +30,6 @@ def write_table(df: pd.DataFrame, location=None, type="csv"):
     basename = f"QuestionnaireResponse-{datetime}"
     if type == "csv":
         ext = "csv"
-        write_fn = lambda dataframe, path: dataframe.to_csv(path, index=False)
     path = location / f"{basename}.{ext}"
     write_fn(df, path)
     return path
