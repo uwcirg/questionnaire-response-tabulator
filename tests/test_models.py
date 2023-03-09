@@ -102,4 +102,4 @@ def test_write_table_location():
 def test_tabulate_qr(qnr_response_example):
     table = tabulate_qr(qnr_response_example)
     assert isinstance(table, pd.DataFrame)
-    assert len(table.index) == 79  # len(qnr_response_example)
+    assert len(table.index) == 79

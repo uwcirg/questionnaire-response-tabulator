@@ -30,7 +30,7 @@ def config_settings(config_key):
         key = config_key.upper()
         for pattern in blacklist:
             if pattern in key:
-                abort(status_code=400, messag=f"Configuration key {key} not available")
+                abort(status_code=400, message=f"Configuration key {key} not available")
         return jsonify({key: current_app.config.get(key)})
 
     settings = {}
@@ -50,6 +50,6 @@ def tabulate():
     try:
         table = tabulate_qr(data)
     except ValidationError as ve:
-        abort(status_code=400, messag=ve)
+        abort(status_code=400, message=ve)
     path = write_table(table)
     return send_file(path, as_attachment=True)

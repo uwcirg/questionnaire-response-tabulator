@@ -18,11 +18,7 @@ from fhir.resources.questionnaireresponse import QuestionnaireResponse
 from fhir.resources.resource import Resource
 
 
-def write_fn(dataframe, path):
-    return dataframe.to_csv(path, index=False)
-
-
-def write_table(df: pd.DataFrame, location=None, type="csv"):
+def write_table(df: pd.DataFrame, location=None):
     if location is None:
         location = Path.cwd()
     else:
@@ -30,10 +26,8 @@ def write_table(df: pd.DataFrame, location=None, type="csv"):
         location.mkdir(parents=True, exist_ok=True)
     datetime = time.strftime("%Y-%m-%d-%H%M%S")
     basename = f"QuestionnaireResponse-{datetime}"
-    if type == "csv":
-        ext = "csv"
-    path = location / f"{basename}.{ext}"
-    write_fn(df, path)
+    path = location / f"{basename}.csv"
+    df.to_csv(path, index=False)
     return path
 
 
@@ -53,8 +47,6 @@ def preprocess_qr(entries):
                 )
             )
             new_entries.append(entry_template)
-    print(len(entries))
-    print(len(new_entries))
     return new_entries
 
 
